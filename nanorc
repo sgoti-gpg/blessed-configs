@@ -1,0 +1,20 @@
+set linenumbers
+set autoindent
+set guidestripe 76
+set stripecolor blue,slate
+set minibar
+set minicolor bold,slate,normal
+set keycolor bold,slate
+set stateflags
+set constantshow
+set mouse
+set nowrap
+set numbercolor bold,slate
+set errorcolor pink
+set statuscolor bold,slate
+set titlecolor bold,slate
+set tabsize 4
+set tabstospaces
+set selectedcolor bold,blue
+set backup
+set backupdir ~/.cache/nano/

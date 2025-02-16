@@ -1,0 +1,70 @@
+# /etc/inputrc - global inputrc for libreadline
+# See readline(3readline) and `info rluserman' for more information.
+
+# Be 8 bit clean.
+set input-meta on
+set output-meta on
+set editing-mode vi
+
+# distinguish between command and insert mode
+set vi-ins-mode-string :i \1
+set vi-cmd-mode-string :c \1
+set blink-matching-paren on
+
+$if mode=vi
+set keymap vi-command
+set show-mode-in-prompt on
+set colored-stats on
+set expand-tilde off
+
+set mark-directories on
+set mark-symlinked-directories on
+set match-hidden-files on
+set print-completions-horizontally on
+
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+#TAB: menu-complete
+# shift tab to menu complete backward
+#"\e[Z": menu-complete-backward
+
+# delete rest of the line (vi "D" behavior)
+"D": kill-line
+# change line -> delete then go in insert mode
+"C":  "Da"
+"dw": kill-word
+"dd": kill-whole-line
+"db": backward-kill-word
+# delete and change line
+"cc": "ddi"
+# change word
+"cw": "dwi"
+# change backward word
+"cb": "dbi"
+# vi equivalent of delete all word i.e delete the current word entirely
+"daw": "lbdW"
+"yaw": "lbyW"
+
+# change all word, delete and edit the current word
+"caw": "lbcW"
+
+# delete inner word (word under the cursor without the surrounding whitespaces)
+"diw": "lbdw"
+# yank inner word
+"yiw": "lbyw"
+# change inner word
+"ciw": "lbcw"
+
+"gg": beginning-of-history
+"G" : end-of-history
+
+set keymap vi-insert
+# switch from insert mode to command mode.
+";;": vi-movement-mode
+
+# Machos of Justice. XD
+";f": "find ./ -type f -name """
+";n": "nice -n 19 "
+";r": "renice -n 19 "
+$endif
