@@ -63,7 +63,7 @@ set keymap vi-insert
 # switch from insert mode to command mode.
 ";;": vi-movement-mode
 
-# Machos of Justice. XD
+# Macros of Justice. XD
 ";f": "find ./ -type f -name """
 ";n": "nice -n 19 "
 ";r": "renice -n 19 "
